@@ -11,7 +11,7 @@ const navigationItems = [
   { title: "声音克隆", icon: <MdKeyboardVoice size={20} />, link: "/pages/dashboard/index/voice-clone" },
   { title: "声音合成", icon: <RiChatVoiceLine size={20} />, link: "/pages/dashboard/index/sound-synthesis" },
   { title: "数字人作品", icon: <PiVideoCamera size={20} />, link: "/pages/dashboard/index/video-works" },
-  { title: "AI助手", icon: <TbAi size={20} />, link: "/pages/dashboard/index/ai-assistant" },
+  { title: "AI助手", icon: <TbAi size={20} style={{ color: 'black', padding: '1px', border: '1px solid black', borderRadius: '50%' }} />, link: "/pages/dashboard/index/ai-assistant" },
 ];
 
 export default function AppSidebar() {
