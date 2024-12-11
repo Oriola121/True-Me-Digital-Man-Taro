@@ -1,0 +1,108 @@
+.layout {
+  height: 100vh;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  // z-index: 50;
+  height: 10%;
+  padding: 0 20px;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-icon {
+  width: 40px;
+  height: 40px;
+}
+
+.logo-text {
+  font-size: 24px;
+  font-weight: 500;
+}
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.side1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  height: 100%;
+}
+
+.btn1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  padding: 0 1rem;
+  color: white;
+  border: none;
+  margin: 0;
+  font-size: 14px;
+  line-height: 1;
+  background: linear-gradient(to right, #ec4899, #e6375d);
+}
+
+.btn2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  padding: 0 1rem;
+  color: white;
+  border: none;
+  margin: 0;
+  font-size: 14px;
+  line-height: 1;
+  background: linear-gradient(to right, #b45309, #7c2d12);
+}
+
+.side2 {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.points {
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+  font-size: 12px;
+  font-weight: 300;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.username {
+  font-size: 16px;
+}
+
+.content{
+  height: 90%;
+  display: flex;
+}
