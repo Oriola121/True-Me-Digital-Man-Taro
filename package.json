@@ -43,6 +43,7 @@
   "author": "",
   "dependencies": {
     "@babel/runtime": "^7.24.4",
+    "@miniprogram-component-plus/tabs": "^1.0.0",
     "@tarojs/components": "4.0.8",
     "@tarojs/helper": "4.0.8",
     "@tarojs/plugin-framework-react": "4.0.8",

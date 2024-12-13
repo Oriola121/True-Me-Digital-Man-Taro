@@ -2,6 +2,7 @@ import { View, Text, Image, Button } from '@tarojs/components';
 import { PiCaretDownBold } from "react-icons/pi";
 import AppSidebar from './sidebar/app-sidebar';
 import './index.scss';
+import Page from './children/page';
 
 export default function Index() {
     return (
@@ -35,6 +36,7 @@ export default function Index() {
             </View>
             <View className='content'>
                 <AppSidebar />
+                <Page />
             </View>
         </View>
     )

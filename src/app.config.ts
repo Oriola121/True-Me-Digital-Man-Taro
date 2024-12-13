@@ -8,5 +8,8 @@ export default defineAppConfig({
     navigationBarBackgroundColor: '#fff',
     navigationBarTitleText: 'WeChat',
     navigationBarTextStyle: 'black'
+  },
+  usingComponents: {
+    'mp-tabs': '@miniprogram-component-plus/tabs'
   }
 })
