@@ -1,0 +1,61 @@
+.scroll-area {
+  height: 450px;
+  width: 100%;
+  padding: 16px 0;
+  overflow-y: auto;
+}
+
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.image-card {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 8px;
+  background-color: #cccccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: 2px solid transparent;
+
+  &--selected {
+    border-color: black;
+  }
+}
+
+.selection-indicator {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 20px;
+  width: 24px;
+  z-index: 1;
+  background-color: black;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom-left-radius: 8px;
+}
+
+.image-preview {
+  height: 85%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.image-label {
+  position: absolute;
+  bottom: 4px;
+  left: 8px;
+  background-color: white;
+  padding: 4px 8px;
+  font-size: 9px;
+  color: black;
+  border-radius: 50px;
+}

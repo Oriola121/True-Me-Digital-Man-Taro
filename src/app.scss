@@ -1,3 +1,12 @@
 @use 'tailwindcss/base' as *;
 @use 'tailwindcss/components' as *;
 @use 'tailwindcss/utilities' as *;
+
+* {
+  scrollbar-width: none;  
+  -ms-overflow-style: none; 
+}
+
+*::-webkit-scrollbar {
+  display: none;  
+}

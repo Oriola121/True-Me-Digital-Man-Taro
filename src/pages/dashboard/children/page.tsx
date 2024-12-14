@@ -1,9 +1,10 @@
-import { Button, Text, View, Image } from '@tarojs/components';
+import { Button, Text, View, Image, ScrollView } from '@tarojs/components';
 import { useState } from 'react';
 import { PiPlusBold } from 'react-icons/pi';
 import { X } from 'lucide-react';
 import './page.scss';
 import CloneSheet from './clone-sheet';
+import CreateVideo from './create-video';
 
 export function ImageClone({ letsCloneImage, handleCloneImage }: { letsCloneImage: boolean, handleCloneImage: () => void }) {
     return (
@@ -20,6 +21,10 @@ export function ImageClone({ letsCloneImage, handleCloneImage }: { letsCloneImag
 export default function Page() {
     const [letsCloneImage, setLetsCloneImage] = useState(false);
     const [isClosing, setIsClosing] = useState(false);
+    const [letsCreateVideo, setLetsCreateVideo] = useState(false);
+    const handleCreateVideo = () => {
+        setLetsCreateVideo(!letsCreateVideo);
+    };
 
     const handleCloneImage = () => {
         if (letsCloneImage) {
@@ -29,7 +34,7 @@ export default function Page() {
             setTimeout(() => {
                 setLetsCloneImage(false);
                 setIsClosing(false);
-            }, 500); 
+            }, 500);
         } else {
             // If overlay is closed, open it
             setLetsCloneImage(true);
@@ -58,7 +63,7 @@ export default function Page() {
                 <Text className='head-text'>形象克隆</Text>
 
                 <View>
-                    <Button className='head-button'>
+                    <Button onClick={handleCreateVideo} className='head-button'>
                         <PiPlusBold color='white' />
                         创建视频
                     </Button>
@@ -95,6 +100,14 @@ export default function Page() {
                         </View>
                         <CloneSheet />
                     </View>
+                </View>
+            )}
+
+            {letsCreateVideo && (
+                <View className='create-video' onClick={(e) => e.stopPropagation()} >
+                    <ScrollView className='create-video-content'>
+                        <CreateVideo onClose={handleCreateVideo} />
+                    </ScrollView>
                 </View>
             )}
         </View>

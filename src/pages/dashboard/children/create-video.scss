@@ -1,0 +1,104 @@
+//digital-people styles
+.digital-people {
+  height: 95%;
+  width: 33.5%;
+  background-color: white;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+.digital-people-tabs-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+
+  .digital-people-tabs-bar {
+    width: 100%;
+    display: flex;
+    cursor: pointer;
+    height: 50px;
+    padding: 4px;
+    background: #f3f4f6;
+    border-radius: 8px;
+  }
+  .digital-people-tab-bar-title {
+    font-size: 12px;
+    font-weight: 500;
+    padding-bottom: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: bold;
+  }
+  .digital-people-tab-bar-title__selected {
+    background: white;
+    font-weight: bold;
+    color: #ff5c01;
+  }
+  .digital-people-tabs-content {
+    width: 100%;
+    margin-top: 10px;
+  }
+  .digital-people-tab-content {
+    display: none;
+  }
+  .digital-people-tab-content.active {
+    display: block;
+  }
+}
+
+//create-video styles
+.create-video-header {
+  display: flex;
+  align-items: center;
+  gap: 350px;
+  padding: 16px 24px;
+  border-bottom: 1px solid #e0e0e0;
+  flex-shrink: 0;
+}
+
+.close-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.page-progress {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+
+  .progress-count {
+    width: 32px;
+    height: 32px;
+    background-color: #ff5c01;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    color: white;
+    font-size: 12px;
+  }
+
+  .progress-text {
+    color: #ff5c01;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+  }
+}
+
+.create-video-body {
+  height: 100vh;
+  display: flex;
+  background: #f3f4f6;
+}

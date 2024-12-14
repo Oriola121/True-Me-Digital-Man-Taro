@@ -72,6 +72,21 @@
   }
 }
 
+//create-video styles
+.create-video {
+  position: fixed;
+  inset: 0;
+  background-color: white;
+  height: 90vh;
+  top: 10.5%;
+}
+
+.create-video-content {
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+}
+
 //page styles
 .page {
   height: 100%;
@@ -84,6 +99,7 @@
   align-items: center;
   padding: 20px 32px;
   border-bottom: 1px solid #e0e0e0;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
 }
 
 .head-text {
