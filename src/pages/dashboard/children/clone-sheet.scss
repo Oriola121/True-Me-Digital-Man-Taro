@@ -1,7 +1,148 @@
-.sheet-container {
+// Color Variables
+$primary-orange: #ff5c01;
+$light-background: #f5f5f5;
+$white: #ffffff;
+$black: #000;
+$upload-background: #fffcfa;
+$remove-btn-color: #ef4444;
+$submit-btn-green: #28a745;
+
+// Mixins
+@mixin flex-center {
   display: flex;
-  flex-direction: column;
-  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin hover-effect {
+  &:hover {
+    opacity: 0.9;
+  }
+}
+
+.sheet {
+  &-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+  }
+
+  &-title {
+    font-size: 18px;
+    font-weight: 600;
+  }
+
+  &-body {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding-bottom: 40px;
+  }
+
+  &-section-2 {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    .upload {
+      &-section {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        padding: 16px 0;
+      }
+
+      &-area {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      &-box {
+        @include flex-center;
+        flex-direction: column;
+        height: 240px;
+        border: 2px dashed $primary-orange;
+        background: $upload-background;
+        border-radius: 8px;
+        cursor: pointer;
+        padding: 16px 12px;
+        gap: 12px;
+      }
+
+      &-instruction {
+        @include flex-center;
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      &-name {
+        padding: 8px;
+        background-color: $light-background;
+        border-radius: 8px;
+        outline: none;
+        border: none;
+        font-size: 14px;
+        height: 40px;
+      }
+    }
+  }
+
+  &-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 8px;
+    flex-shrink: 1;
+    height: 15%;
+
+    .level {
+      &-1-footer {
+        display: flex;
+        justify-content: end;
+        width: 100%;
+      }
+
+      &-2-footer {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+      }
+    }
+
+    .next-btn,
+    .cancel-btn,
+    .submit-btn {
+      height: 40px;
+      width: 150px;
+      padding: 0 1rem;
+      margin: 0;
+      border: none;
+      border-radius: 4px;
+      font-size: 14px;
+      color: $white;
+      @include flex-center;
+      cursor: pointer;
+      @include hover-effect;
+    }
+
+    .next-btn {
+      background-color: $primary-orange;
+    }
+
+    .cancel-btn {
+      border: 1px solid $light-background;
+      background-color: $white;
+      color: $black;
+
+      &:hover {
+        background-color: $light-background;
+      }
+    }
+
+    .submit-btn {
+      background-color: $submit-btn-green;
+    }
+  }
 }
 
 .clone-sheet-head {
@@ -10,16 +151,6 @@
   align-items: center;
 }
 
-.sheet-title {
-  font-size: 18px;
-  font-weight: 600;
-}
-
-.sheet-body {
-  flex-grow: 1;
-  overflow-y: auto;
-  padding-bottom: 40px;
-}
 .requirements {
   margin: 16px 0;
   padding: 10px 20px;
@@ -27,95 +158,11 @@
   flex-direction: column;
   border-radius: 8px;
   gap: 8px;
-  border-radius: 8px;
-  background-color: #f5f5f5;
-}
-.requirements-list {
-  font-size: 14px;
-}
+  background-color: $light-background;
 
-.sheet-section-2 {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-
-  .upload-section {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    padding: 16px 0;
+  &-list {
+    font-size: 14px;
   }
-
-  .upload-area {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .upload-box {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 240px;
-    border: 2px dashed #ff5c01;
-    background: #fffcfa;
-    border-radius: 8px;
-    cursor: pointer;
-    padding: 16px 12px;
-    gap: 12px;
-  }
-
-  .upload-instruction {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 8px;
-  }
-}
-
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-.loader-spin {
-  animation: spin 1s linear infinite;
-  color: #ff5c01;
-  width: 24px;
-  height: 24px;
-  margin-bottom: 8px;
-}
-
-.remove-video-btn {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background-color: #ef4444;
-  color: #ffffff;
-  padding: 4px;
-  border-radius: 50%;
-  width: 25px;
-  z-index: 1;
-
-  &:hover {
-    opacity: 0.9;
-  }
-}
-
-.upload-name {
-  padding: 8px;
-  background-color: #f5f5f5;
-  border-radius: 8px;
-  outline: none;
-  border: none;
-  font-size: 14px;
-  height: 40px;
 }
 
 .disclaimer-list {
@@ -127,61 +174,34 @@
   padding-left: 1.5em;
 }
 
-.sheet-footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-bottom: 8px;
-  flex-shrink: 1;
-  height: 15%;
+.remove-video-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: $remove-btn-color;
+  color: $white;
+  padding: 4px;
+  border-radius: 50%;
+  width: 25px;
+  z-index: 1;
+  @include hover-effect;
+}
 
-  .level-1-footer {
-    display: flex;
-    justify-content: end;
-    width: 100%;
-  }
-
-  .level-2-footer {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-  }
-
-  .next-btn,
-  .cancel-btn,
-  .submit-btn {
-    height: 40px;
-    width: 150px;
-    padding: 0 1rem;
-    margin: 0;
-    border: none;
-    border-radius: 4px;
-    font-size: 14px;
-    color: #ffffff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-
-    &:hover {
-      opacity: 0.9;
+.loader-spin {
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
     }
   }
 
-  .next-btn {
-    background-color: #ff5c01;
-  }
-
-  .cancel-btn {
-    border: 1px solid #f5f5f5;
-    background-color: #ffffff;
-    color: #000;
-    &:hover {
-      background-color: #f5f5f5;
-    }
-  }
-
-  .submit-btn {
-    background-color: #28a745;
+  & {
+    animation: spin 1s linear infinite;
+    color: $primary-orange;
+    width: 24px;
+    height: 24px;
+    margin-bottom: 8px;
   }
 }

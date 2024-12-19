@@ -1,42 +1,50 @@
+// Variables for consistent colors and sizing
+$sidebar-background: #e4e7ec;
+$sidebar-border-color: #d3d3d3;
+$active-background: #fbede7;
+$active-text-color: #ff5c01;
+
 .sidebar {
   width: 20%;
   height: 100%;
-  background-color: #e4e7ec;
+  background-color: $sidebar-background;
   display: flex;
   flex-direction: column;
   padding: 0.5rem 0;
   gap: 0.5rem;
-  border-right: 1px solid #d3d3d3;
+  border-right: 1px solid $sidebar-border-color;
+
+  &-title {
+    font-size: 0.6rem;
+    font-weight: 700;
+    padding: 0 0.5rem;
+  }
 }
 
-.sidebar-title {
-  font-size: 0.6rem;
-  font-weight: 700;
-  padding: 0 0.5rem;
-}
+.nav {
+  &-items {
+    display: flex;
+    flex-direction: column;
+    padding: 0 0.2rem;
+  }
 
-.nav-items {
-  display: flex;
-  flex-direction: column;
-  padding: 0 0.2rem;
-}
+  &-item {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0.5rem;
 
-.nav-item {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 0.5rem;
-}
+    &.active {
+      background-color: $active-background;
+      color: $active-text-color;
+      border-radius: 10px;
+      padding: 0.5rem;
+    }
+  }
 
-.nav-text {
-  font-size: 14px;
-  font-weight: 700;
-}
-
-.nav-item.active {
-  background-color: #fbede7;
-  color: #ff5c01;   
-  border-radius: 10px;
-  padding: 0.5rem;
+  &-text {
+    font-size: 14px;
+    font-weight: 700;
+  }
 }

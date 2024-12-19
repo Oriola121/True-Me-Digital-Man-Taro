@@ -3,6 +3,8 @@ import { View, Text } from '@tarojs/components';
 import { PiCaretLeft } from 'react-icons/pi';
 import './create-video.scss';
 import PublicImage from './public-image';
+import VoiceDriven from './action-driven/voice/voice-driven';
+import TextDriven from './action-driven/text/text-driven';
 
 export function PickDigitalPeople() {
     const [tabs] = useState([
@@ -70,8 +72,49 @@ export default function CreateVideo({ onClose }: { onClose: () => void }) {
 
             <View className='create-video-body'>
                 <PickDigitalPeople />
-                shdbbnmn
+                <ActionDrive />
             </View>
         </>
+    );
+}
+
+
+export function ActionDrive() {
+    const [tabs] = useState([
+        {
+            title: '文本驱动',
+            content: <TextDriven />,
+        },
+        {
+            title: '语音驱动',
+            content: <VoiceDriven />,
+        },
+    ]);
+
+    const [activeTab, setActiveTab] = useState(0);
+
+    const handleTabClick = (index: number) => {
+        setActiveTab(index);
+    };
+    return (
+        <View className='action-drive'>
+            <View className='action-drive-tabs-container'>
+                <View className='action-drive-tabs-bar'>
+                    {tabs.map((tab, index) => (
+                        <View key={index} className={`action-drive-tab-bar-title ${activeTab === index ? 'action-drive-tab-bar-title__selected' : ''}`} onClick={() => handleTabClick(index)} >
+                            {tab.title}
+                        </View>
+                    ))}
+                </View>
+
+                <View className='action-drive-tabs-content'>
+                    {tabs.map((tab, index) => (
+                        <View key={index} className={`action-drive-tab-content ${activeTab === index ? 'active' : ''}`} >
+                            {activeTab === index && tab.content}
+                        </View>
+                    ))}
+                </View>
+            </View>
+        </View>
     );
 }

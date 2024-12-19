@@ -1,6 +1,6 @@
 //digital-people styles
 .digital-people {
-  height: 95%;
+  height: 85%;
   width: 33.5%;
   background-color: white;
   padding: 16px;
@@ -8,50 +8,102 @@
   flex-direction: column;
   gap: 8px;
   border-bottom-right-radius: 8px;
+
+  .digital-people-tabs-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+
+    .digital-people-tabs-bar {
+      width: 100%;
+      display: flex;
+      cursor: pointer;
+      height: 50px;
+      padding: 4px;
+      background: #f3f4f6;
+      border-radius: 8px;
+    }
+    .digital-people-tab-bar-title {
+      font-size: 12px;
+      font-weight: 500;
+      padding-bottom: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 50%;
+      border-radius: 8px;
+      font-size: 15px;
+      font-weight: bold;
+    }
+    .digital-people-tab-bar-title__selected {
+      background: white;
+      font-weight: bold;
+      color: #ff5c01;
+    }
+    .digital-people-tabs-content {
+      width: 100%;
+      margin-top: 10px;
+    }
+    .digital-people-tab-content {
+      display: none;
+    }
+    .digital-people-tab-content.active {
+      display: block;
+    }
+  }
 }
 
-.digital-people-tabs-container {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: start;
-  align-items: start;
+// action-drive styles
+.action-drive {
+  width: 66.5%;
+  height: 100%;
+  padding-top: 28px;
 
-  .digital-people-tabs-bar {
+  .action-drive-tabs-container {
     width: 100%;
     display: flex;
-    cursor: pointer;
-    height: 50px;
-    padding: 4px;
-    background: #f3f4f6;
-    border-radius: 8px;
-  }
-  .digital-people-tab-bar-title {
-    font-size: 12px;
-    font-weight: 500;
-    padding-bottom: 5px;
-    display: flex;
+    flex-direction: column;
+    justify-content: start;
     align-items: center;
-    justify-content: center;
-    width: 50%;
-    border-radius: 8px;
-    font-size: 15px;
-    font-weight: bold;
-  }
-  .digital-people-tab-bar-title__selected {
-    background: white;
-    font-weight: bold;
-    color: #ff5c01;
-  }
-  .digital-people-tabs-content {
-    width: 100%;
-    margin-top: 10px;
-  }
-  .digital-people-tab-content {
-    display: none;
-  }
-  .digital-people-tab-content.active {
-    display: block;
+
+    .action-drive-tabs-bar {
+      width: 30%;
+      display: flex;
+      cursor: pointer;
+      height: 40px;
+      border: 1px solid #ff5c01;
+      border-radius: 4px;
+    }
+    .action-drive-tab-bar-title {
+      font-size: 12px;
+      font-weight: 500;
+      padding-bottom: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 50%;
+      border-radius: 4px;
+      font-size: 15px;
+      font-weight: 500;
+      color: black;
+    }
+    .action-drive-tab-bar-title__selected {
+      background: #ff5c01;
+      font-weight: 600;
+      color: white;
+    }
+    .action-drive-tabs-content {
+      width: 100%;
+      margin-top: 28px;
+    }
+    .action-drive-tab-content {
+      display: none;
+    }
+    .action-drive-tab-content.active {
+      display: block;
+    }
   }
 }
 

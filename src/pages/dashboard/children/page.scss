@@ -1,33 +1,18 @@
-//image-clone styles
-.clone-container {
-  width: 24%;
-  aspect-ratio: 1;
-  background-color: #fce7f3;
-  border-radius: 12px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  gap: 12px;
-}
+// Color Variables
+$primary-orange: #ff5c01;
+$white: white;
+$pink-background: #fce7f3;
+$border-gray: #e0e0e0;
+$overlay-background: rgba(0, 0, 0, 0.5);
 
-.icon-wrapper {
-  padding: 8px;
-  background-color: #ff5c01;
+// Mixins
+@mixin flex-center {
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 50%;
-  color: white;
 }
 
-.clone-text {
-  font-size: 16px;
-  font-weight: 700;
-}
-
-//clone-sheet-overlay
+// Keyframe Animations
 @keyframes slideInFromRight {
   from {
     transform: translateX(100%);
@@ -46,84 +31,117 @@
   }
 }
 
-.sheet-overlay {
-  position: fixed;
-  top: 0;
-  right: 0;
-  z-index: 1;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  display: flex;
-  justify-content: end;
+// Clone Container Styles
+.clone-container {
+  width: 24%;
+  aspect-ratio: 1;
+  background-color: $pink-background;
+  border-radius: 12px;
+  @include flex-center;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 12px;
 }
 
-.sheet-overlay-content {
-  width: 36.5%;
-  height: 100%;
-  background-color: white;
-  padding: 10px 20px;
-  position: relative;
+.icon-wrapper {
+  padding: 8px;
+  background-color: $primary-orange;
+  @include flex-center;
+  border-radius: 50%;
+  color: $white;
+}
+
+.clone-text {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+// Sheet Overlay Styles
+.sheet {
+  &-overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    background-color: $overlay-background;
+    display: flex;
+    justify-content: end;
+  }
+
+  &-overlay-content {
+    width: 36.5%;
+    height: 100%;
+    background-color: $white;
+    padding: 10px 20px;
+    position: relative;
+    transform: translateX(100%);
+    animation: slideInFromRight 0.5s ease forwards;
+
+    &.close {
+      animation: slideOutToRight 0.5s ease forwards;
+    }
+  }
+}
+
+// Create Video Styles
+.create-video {
+  position: fixed;
+  inset: 0;
+  background-color: $white;
+  height: 90vh;
+  top: 10.5%;
   transform: translateX(100%);
   animation: slideInFromRight 0.5s ease forwards;
 
   &.close {
     animation: slideOutToRight 0.5s ease forwards;
   }
+
+  &-content {
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+  }
 }
 
-//create-video styles
-.create-video {
-  position: fixed;
-  inset: 0;
-  background-color: white;
-  height: 90vh;
-  top: 10.5%;
-}
-
-.create-video-content {
-  width: 100%;
-  height: 100%;
-  overflow-y: auto;
-}
-
-//page styles
+// Page Styles
 .page {
   height: 100%;
   width: 100%;
+
+  &-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 32px;
+    border-bottom: 1px solid $border-gray;
+  }
+
+  &-body {
+    padding: 20px 32px;
+  }
 }
 
-.page-head {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px 32px;
-  border-bottom: 1px solid #e0e0e0;
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
-}
+.head {
+  &-text {
+    font-size: 24px;
+    font-weight: 700;
+  }
 
-.head-text {
-  font-size: 24px;
-  font-weight: 700;
-}
-
-.head-button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  height: 40px;
-  padding: 0 0.5rem;
-  margin: 0;
-  border-radius: 8px;
-  background-color: #ff5c01;
-  color: white;
-  font-size: 16px;
-  font-weight: 700;
-}
-
-.page-body {
-  padding: 20px 32px;
+  &-button {
+    @include flex-center;
+    gap: 8px;
+    height: 40px;
+    padding: 0 0.5rem;
+    margin: 0;
+    border-radius: 8px;
+    background-color: $primary-orange;
+    color: $white;
+    font-size: 16px;
+    font-weight: 700;
+  }
 }
 
 .vr-image {
@@ -145,23 +163,30 @@
     gap: 30px;
     cursor: pointer;
   }
-  .tab-bar-title {
-    font-size: 12px;
-    font-weight: 500;
-    padding-bottom: 5px;
+
+  .tab {
+    &-bar-title {
+      font-size: 12px;
+      font-weight: 500;
+      padding-bottom: 5px;
+
+      &__selected {
+        border-bottom: 2px solid $primary-orange;
+        font-weight: bold;
+      }
+    }
+
+    &-content {
+      display: none;
+
+      &.active {
+        display: block;
+      }
+    }
   }
-  .tab-bar-title__selected {
-    border-bottom: 2px solid #ff5c01;
-    font-weight: bold;
-  }
+
   .tabs-content {
     width: 100%;
     margin-top: 10px;
-  }
-  .tab-content {
-    display: none;
-  }
-  .tab-content.active {
-    display: block;
   }
 }

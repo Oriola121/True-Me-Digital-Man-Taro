@@ -18,28 +18,42 @@ export function ImageClone({ letsCloneImage, handleCloneImage }: { letsCloneImag
     )
 }
 
-export default function Page() {
+export default function Page({ toggleLoader }) {
     const [letsCloneImage, setLetsCloneImage] = useState(false);
     const [isClosing, setIsClosing] = useState(false);
     const [letsCreateVideo, setLetsCreateVideo] = useState(false);
+
     const handleCreateVideo = () => {
-        setLetsCreateVideo(!letsCreateVideo);
+        if (letsCreateVideo) {
+            toggleLoader(true, true); // Show loader moving right-to-left
+            setIsClosing(true);
+
+            setTimeout(() => {
+                setLetsCreateVideo(false);
+                setIsClosing(false);
+                toggleLoader(false); // Hide loader after animation
+            }, 500);
+        } else {
+            toggleLoader(true); // Show loader moving left-to-right
+            setLetsCreateVideo(true);
+
+            setTimeout(() => {
+                toggleLoader(false); // Hide loader after animation
+            }, 500);
+        }
     };
 
     const handleCloneImage = () => {
         if (letsCloneImage) {
-            // If overlay is open, start closing animation
             setIsClosing(true);
-            // Wait for animation to complete before fully closing
             setTimeout(() => {
                 setLetsCloneImage(false);
                 setIsClosing(false);
             }, 500);
         } else {
-            // If overlay is closed, open it
             setLetsCloneImage(true);
         }
-    };
+    }
 
     const [tabs] = useState([
         { title: '我的形象', action: <ImageClone letsCloneImage={letsCloneImage} handleCloneImage={handleCloneImage} /> },
@@ -104,7 +118,7 @@ export default function Page() {
             )}
 
             {letsCreateVideo && (
-                <View className='create-video' onClick={(e) => e.stopPropagation()} >
+                <View className={`create-video ${isClosing ? 'close' : ''}`} onClick={(e) => e.stopPropagation()} >
                     <ScrollView className='create-video-content'>
                         <CreateVideo onClose={handleCreateVideo} />
                     </ScrollView>
